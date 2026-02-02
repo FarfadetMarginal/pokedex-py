@@ -24,6 +24,7 @@ imagetortank= tk.PhotoImage(file="img/Tortank.png")
 image9 = imagetortank.subsample(4, 4)
 
 
+
 class Pokemon:
     def __init__(self, nom, numero, type, taille, poids, hp, attaque, defense, attaquespeciale, defensespeciale, vitesse, image):
         self.name = nom
@@ -82,6 +83,18 @@ def ajout():
     print(newname.name)
     print(newname.attack)
 
+
+    champ_saisie.delete(0, tk.END)
+    champ_saisie1.delete(0, tk.END)
+    champ_saisie2.delete(0, tk.END)
+    champ_saisie3.delete(0, tk.END)
+    champ_saisie4.delete(0, tk.END)
+    champ_saisie5.delete(0, tk.END)
+    champ_saisie6.delete(0, tk.END)
+    champ_saisie7.delete(0, tk.END)
+    champ_saisie8.delete(0, tk.END)
+    champ_saisie9.delete(0, tk.END)
+    champ_saisie10.delete(0, tk.END)
 
 
 listbox = tk.Listbox(fenetre, width=40)
