@@ -1,8 +1,7 @@
 import tkinter as tk
 from tkinter import messagebox
-
+import os
 fenetre = tk.Tk()
-
 
 imagebulbizarre = tk.PhotoImage(file="img/Bulbizarre.png")
 image1 = imagebulbizarre.subsample(3, 3)
@@ -22,7 +21,8 @@ imagecarabaffe= tk.PhotoImage(file="img/Carabaffe.png")
 image8 = imagecarabaffe.subsample(3, 3)
 imagetortank= tk.PhotoImage(file="img/Tortank.png")
 image9 = imagetortank.subsample(4, 4)
-
+logo = tk.PhotoImage(file="img/pngwing.com (3).png")
+logo1 = logo.subsample(3, 3)
 
 
 class Pokemon:
@@ -50,6 +50,7 @@ dracaufeu = Pokemon("dracaufeu", 6, ["feu", "vol"], 1.7, 90.5, 78, 84, 78, 109, 
 carapuce = Pokemon("carapuce", 7, ["eau"], 0.5, 9, 44, 48, 65, 50, 64, 43, image7)
 carabaffe = Pokemon("carabaffe", 8, ["eau"], 1, 22.5, 59, 63, 80, 65, 80, 58, image8)
 tortank = Pokemon("tortank", 9, ["eau"], 1.6, 85.5, 79, 83, 100, 85, 105, 78, image9)
+
         
 pokemonlist = [bulbizarre, herbizarre, florizarre, salameche, reptincel, dracaufeu, carapuce, carabaffe, tortank]
 
@@ -75,14 +76,21 @@ def ajout():
     newspedef = champ_saisie9.get()
     newspeed = champ_saisie10.get()
     imagezzz = newname.capitalize()
+    
+    # bon la j'ai essayé de gérer les erreurs, ça bug avec try except et la c pas fou non plus
 
-    imagey= tk.PhotoImage(file=f"img/{imagezzz}.png")
-    imagex = imagey.subsample(4, 4)
+    file_path = f"img/{imagezzz}.png"
+    if os.path.exists(file_path):
+        imagey= tk.PhotoImage(file=f"img/{imagezzz}.png")
+        imagex = imagey.subsample(4, 4)
+    else:
+            imagex = " "
+
 
     newname = Pokemon(newname, newnb, newtype, newh, neww, newhp, newatt, newdef, newspeatt, newspedef, newspeed, imagex)
     pokemonlist.append(newname)
     listbox.insert(tk.END,newname.name)
-
+    
 
     champ_saisie.delete(0, tk.END)
     champ_saisie1.delete(0, tk.END)
@@ -100,16 +108,16 @@ def ajout():
 listbox = tk.Listbox(fenetre, width=40)
 for pok in pokemonlist:
     listbox.insert(tk.END,pok.name)
-listbox.place(x=0, y=0)
+listbox.place(x=20, y=0)
 
 label1 = tk.Label(fenetre)
-label1.place(x=0, y=500)
+label1.place(x=20, y=500)
 label2 = tk.Label(fenetre)
-label2.place(x=0, y=180)
+label2.place(x=20, y=180)
 
 
 bouton = tk.Button(fenetre, text="infos", command=afficher_tout)
-bouton.place(x=50, y=700)
+bouton.place(x=70, y=700)
 
 labelname = tk.Label(fenetre, text="nom")
 labelname.place(x=500, y=0)
@@ -169,7 +177,8 @@ champ_saisie10.place(x=600, y=300)
 bouton2 = tk.Button(fenetre, text="ajouter un nouveau pokemon", command = ajout)
 bouton2.place(x=550, y=330)
 
+labellogo = tk.Label(fenetre, image = logo1)
+labellogo.place(x=450, y=430)
 
-
-fenetre.geometry("1024x768")
+fenetre.geometry("804x768")
 fenetre.mainloop()
