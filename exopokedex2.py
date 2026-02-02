@@ -74,14 +74,14 @@ def ajout():
     newspeatt = champ_saisie8.get()
     newspedef = champ_saisie9.get()
     newspeed = champ_saisie10.get()
-    imagex = 0
+    imagezzz = newname.capitalize()
+
+    imagey= tk.PhotoImage(file=f"img/{imagezzz}.png")
+    imagex = imagey.subsample(4, 4)
 
     newname = Pokemon(newname, newnb, newtype, newh, neww, newhp, newatt, newdef, newspeatt, newspedef, newspeed, imagex)
     pokemonlist.append(newname)
     listbox.insert(tk.END,newname.name)
-    print(pokemonlist)
-    print(newname.name)
-    print(newname.attack)
 
 
     champ_saisie.delete(0, tk.END)
@@ -105,7 +105,7 @@ listbox.place(x=0, y=0)
 label1 = tk.Label(fenetre)
 label1.place(x=0, y=500)
 label2 = tk.Label(fenetre)
-label2.place(x=0, y=160)
+label2.place(x=0, y=180)
 
 
 bouton = tk.Button(fenetre, text="infos", command=afficher_tout)
@@ -168,6 +168,7 @@ champ_saisie10.place(x=600, y=300)
 
 bouton2 = tk.Button(fenetre, text="ajouter un nouveau pokemon", command = ajout)
 bouton2.place(x=550, y=330)
+
 
 
 fenetre.geometry("1024x768")
