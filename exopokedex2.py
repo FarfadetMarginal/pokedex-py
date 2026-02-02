@@ -43,45 +43,6 @@ class Pokemon:
         self.speed = vitesse
         self.img = image
 
-    def afficher_infos(self):
-        print(f"{self.name}")
-        print(f"Pokemon numéro  {self.number}")
-        print(f"Type : {self.type}")
-        print(f"Il mesure {self.height}m et pèse {self.weight}Kg")
-        print(f"Statistiques : ")
-        print(f"PV = {self.hp}")
-        print(f"Attaque = {self.attack}")
-        print(f"Defense = {self.defense}")
-        print(f"Attaque spéciale = {self.spatt}")
-        print(f"Defense spéciale = {self.spdef}")
-        print(f"Vitesse = {self.speed}")
-
-        label1.config(text=f"{self.name} \n Pokemon numéro  {self.number} \n Il mesure {self.height}m et pèse {self.weight}Kg \n Il est de type {self.type} \n Statistiques : \n PV = {self.hp}  \n Attaque = {self.attack} \n Defense = {self.defense} \n Attaque spéciale = {self.spatt} \n Defense spéciale = {self.spdef} \n Vitesse = {self.speed} ")
-        label2.config(image = self.img)
-
-    def choose(self):
-        index = listbox.curselection()
-        pok = listbox.get(index)
-        if pok == self.name:
-            label1.config(text=f"{self.name} \n Pokemon numéro  {self.number} \n Il mesure {self.height}m et pèse {self.weight}Kg \n Il est de type {self.type} \n Statistiques : \n PV = {self.hp}  \n Attaque = {self.attack} \n Defense = {self.defense} \n Attaque spéciale = {self.spatt} \n Defense spéciale = {self.spdef} \n Vitesse = {self.speed} ")
-            label2.config(image = self.img)
-        
-pokemonlist = [
-    "bulbizarre", "herbizarre", "florizarre", "salameche", "reptincel", "dracaufeu", "carapuce", "carabaffe", "tortank"
-]
-
-def afficher_tout():
-    index = listbox.curselection()
-    pok = listbox.get(index)
-    bulbizarre.choose()
-    herbizarre.choose()
-    florizarre.choose()
-    salameche.choose()
-    reptincel.choose()
-    dracaufeu.choose()
-    carapuce.choose()
-    carabaffe.choose()
-    tortank.choose()
 
 bulbizarre = Pokemon("bulbizarre", 1, ["plante", "poison"], 0.7, 6.9, 45, 49, 49, 65, 65, 45, image1)
 herbizarre = Pokemon("herbizarre", 2, ["plante", "poison"], 1, 13, 60, 62, 63, 80, 80, 60, image2)
@@ -92,10 +53,20 @@ dracaufeu = Pokemon("dracaufeu", 6, ["feu", "vol"], 1.7, 90.5, 78, 84, 78, 109, 
 carapuce = Pokemon("carapuce", 7, ["eau"], 0.5, 9, 44, 48, 65, 50, 64, 43, image7)
 carabaffe = Pokemon("carabaffe", 8, ["eau"], 1, 22.5, 59, 63, 80, 65, 80, 58, image8)
 tortank = Pokemon("tortank", 9, ["eau"], 1.6, 85.5, 79, 83, 100, 85, 105, 78, image9)
+        
+pokemonlist = [bulbizarre, herbizarre, florizarre, salameche, reptincel, dracaufeu, carapuce, carabaffe, tortank]
 
+def afficher_tout():
+    index = listbox.curselection()
+    selection = listbox.get(index)
+    for pok in pokemonlist:
+        if pok.name == selection:
+            label1.config(text=f"{pok.name} \n Pokemon numéro  {pok.number} \n Il mesure {pok.height}m et pèse {pok.weight}Kg \n Il est de type {pok.type} \n Statistiques : \n PV = {pok.hp}  \n Attaque = {pok.attack} \n Defense = {pok.defense} \n Attaque spéciale = {pok.spatt} \n Defense spéciale = {pok.spdef} \n Vitesse = {pok.speed} ")
+            label2.config(image = pok.img)
+    
 listbox = tk.Listbox(fenetre, width=40)
 for pok in pokemonlist:
-    listbox.insert(tk.END,pok)
+    listbox.insert(tk.END,pok.name)
 listbox.grid(row=0, column = 0)
 
 label1 = tk.Label(fenetre)
