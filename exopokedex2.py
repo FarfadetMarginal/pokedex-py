@@ -4,9 +4,6 @@ from tkinter import messagebox
 fenetre = tk.Tk()
 
 
-label1 = tk.Label(fenetre, text="0")
-label1.grid(row=1, column = 0)
-
 imagebulbizarre = tk.PhotoImage(file="img/Bulbizarre.png")
 image1 = imagebulbizarre.subsample(3, 3)
 imageherbizarre = tk.PhotoImage(file="img/Herbizarre.png")
@@ -25,7 +22,6 @@ imagecarabaffe= tk.PhotoImage(file="img/Carabaffe.png")
 image8 = imagecarabaffe.subsample(3, 3)
 imagetortank= tk.PhotoImage(file="img/Tortank.png")
 image9 = imagetortank.subsample(4, 4)
-
 
 
 class Pokemon:
@@ -91,75 +87,75 @@ def ajout():
 listbox = tk.Listbox(fenetre, width=40)
 for pok in pokemonlist:
     listbox.insert(tk.END,pok.name)
-listbox.grid(row=0, column = 0)
+listbox.place(x=0, y=0)
 
 label1 = tk.Label(fenetre)
-label1.grid(row=1, column = 0)
+label1.place(x=0, y=500)
 label2 = tk.Label(fenetre)
-label2.grid(row=2, column = 0)
+label2.place(x=0, y=150)
 
 
 bouton = tk.Button(fenetre, text="infos", command=afficher_tout)
-bouton.grid(row=3, column = 0)
+bouton.place(x=50, y=700)
 
 labelname = tk.Label(fenetre, text="nom")
-labelname.grid(row=0, column = 1)
+labelname.place(x=500, y=0)
 champ_saisie = tk.Entry(fenetre)
-champ_saisie.grid(row=1, column = 1)
+champ_saisie.place(x=600, y=0)
 
 labelnb = tk.Label(fenetre, text="numéro")
-labelnb.grid(row=2, column = 1)
+labelnb.place(x=500, y=30)
 champ_saisie1 = tk.Entry(fenetre)
-champ_saisie1.grid(row=3, column = 1)
+champ_saisie1.place(x=600, y=30)
 
 labeltype = tk.Label(fenetre, text="type")
-labeltype.grid(row=4, column = 1)
+labeltype.place(x=500, y=60)
 champ_saisie2 = tk.Entry(fenetre)
-champ_saisie2.grid(row=5, column = 1)
+champ_saisie2.place(x=600, y=60)
 
 labelheight = tk.Label(fenetre, text="taille")
-labelheight.grid(row=6, column = 1)
+labelheight.place(x=500, y=90)
 champ_saisie3 = tk.Entry(fenetre)
-champ_saisie3.grid(row=7, column = 1)
+champ_saisie3.place(x=600, y=90)
 
 labelweight = tk.Label(fenetre, text="poids")
-labelweight.grid(row=8, column = 1)
+labelweight.place(x=500, y=120)
 champ_saisie4 = tk.Entry(fenetre)
-champ_saisie4.grid(row=9, column = 1)
+champ_saisie4.place(x=600, y=120)
 
 labelhp = tk.Label(fenetre, text="pv")
-labelhp.grid(row=10, column = 1)
+labelhp.place(x=500, y=150)
 champ_saisie5 = tk.Entry(fenetre)
-champ_saisie5.grid(row=11, column = 1)
+champ_saisie5.place(x=600, y=150)
 
 labelatt = tk.Label(fenetre, text="attaque")
-labelatt.grid(row=12, column = 1)
+labelatt.place(x=500, y=180)
 champ_saisie6 = tk.Entry(fenetre)
-champ_saisie6.grid(row=13, column = 1)
+champ_saisie6.place(x=600, y=180)
 
 labeldef = tk.Label(fenetre, text="defense")
-labeldef.grid(row=14, column = 1)
+labeldef.place(x=500, y=210)
 champ_saisie7 = tk.Entry(fenetre)
-champ_saisie7.grid(row=15, column = 1)
+champ_saisie7.place(x=600, y=210)
 
 labelspeatt = tk.Label(fenetre, text="attaque spéciale")
-labelspeatt.grid(row=16, column = 1)
+labelspeatt.place(x=500, y=240)
 champ_saisie8 = tk.Entry(fenetre)
-champ_saisie8.grid(row=17, column = 1)
+champ_saisie8.place(x=600, y=240)
 
 labelspedef = tk.Label(fenetre, text="defense spéciale")
-labelspedef.grid(row=18, column = 1)
+labelspedef.place(x=500, y=270)
 champ_saisie9 = tk.Entry(fenetre)
-champ_saisie9.grid(row=19, column = 1)
+champ_saisie9.place(x=600, y=270)
 
 labelspeed = tk.Label(fenetre, text="vitesse")
-labelspeed.grid(row=20, column = 1)
+labelspeed.place(x=500, y=300)
 champ_saisie10 = tk.Entry(fenetre)
-champ_saisie10.grid(row=21, column = 1)
+champ_saisie10.place(x=600, y=300)
 
 bouton2 = tk.Button(fenetre, text="ajouter un nouveau pokemon", command = ajout)
-bouton2.grid(row=22, column = 1)
+bouton2.place(x=550, y=330)
 
 
-fenetre.geometry("524x768")
+fenetre.geometry("1024x768")
 fenetre.mainloop()
