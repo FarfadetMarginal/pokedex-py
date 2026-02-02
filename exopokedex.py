@@ -40,22 +40,39 @@ class Pokemon:
         label1.config(text=f"{self.name} \n Pokemon numéro  {self.number} \n Il mesure {self.height}m et pèse {self.weight}Kg \n Il est de type {self.type} \n Statistiques : \n PV = {self.hp}  \n Attaque = {self.attack} \n Defense = {self.defense} \n Attaque spéciale = {self.spatt} \n Defense spéciale = {self.spdef} \n Vitesse = {self.speed} ")
         label2.config(image = image1)
 
-    
+    def choose(self):
+        index = listbox.curselection()
+        pok = listbox.get(index)
+        print(pok)
+        print(self.name)
+        if pok == self.name:
+            label1.config(text=f"{self.name} \n Pokemon numéro  {self.number} \n Il mesure {self.height}m et pèse {self.weight}Kg \n Il est de type {self.type} \n Statistiques : \n PV = {self.hp}  \n Attaque = {self.attack} \n Defense = {self.defense} \n Attaque spéciale = {self.spatt} \n Defense spéciale = {self.spdef} \n Vitesse = {self.speed} ")
+            label2.config(image = image1)
+        
+
 
     
-
-def afficher_tout():
-    
-    bulbizarre.afficher_infos()
-
-
 pokemonlist = [
     "bulbizarre", "herbizarre", "florizarre"
 ]
 
+def afficher_tout():
+    index = listbox.curselection()
+    pok = listbox.get(index)
+    bulbizarre.choose()
+    herbizarre.choose()
+    florizarre.choose()
 
-bulbizarre = Pokemon("Bulbizarre", 1, ["plante", "poison"], 0.7, 6.9, 45, 49, 49, 65, 65, 45)
-herbizarre = Pokemon("Herbizarre", 2, ["plante", "poison"], 1, 13, 60, 62, 63, 80, 80, 60)
+
+
+
+
+
+
+
+bulbizarre = Pokemon("bulbizarre", 1, ["plante", "poison"], 0.7, 6.9, 45, 49, 49, 65, 65, 45)
+herbizarre = Pokemon("herbizarre", 2, ["plante", "poison"], 1, 13, 60, 62, 63, 80, 80, 60)
+florizarre = Pokemon("florizarre", 3, ["plante", "poison"], 2, 100, 80, 82, 83, 100, 100, 80)
 
 listbox = tk.Listbox(fenetre, width=40)
 for pok in pokemonlist:
