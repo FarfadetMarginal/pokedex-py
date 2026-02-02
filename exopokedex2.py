@@ -67,7 +67,7 @@ def ajout():
     newtype = champ_saisie2.get()
     newh = champ_saisie3.get()
     neww = champ_saisie4.get()
-    newhp = champ_saisie5.get
+    newhp = champ_saisie5.get()
     newatt = champ_saisie6.get()
     newdef = champ_saisie7.get()
     newspeatt = champ_saisie8.get()
@@ -75,8 +75,8 @@ def ajout():
     newspeed = champ_saisie10.get()
     imagex = 0
 
-    pokemonlist.append(newname)
     newname = Pokemon(newname, newnb, newtype, newh, neww, newhp, newatt, newdef, newspeatt, newspedef, newspeed, imagex)
+    pokemonlist.append(newname)
     listbox.insert(tk.END,newname.name)
     print(pokemonlist)
     print(newname.name)
@@ -92,7 +92,7 @@ listbox.place(x=0, y=0)
 label1 = tk.Label(fenetre)
 label1.place(x=0, y=500)
 label2 = tk.Label(fenetre)
-label2.place(x=0, y=150)
+label2.place(x=0, y=160)
 
 
 bouton = tk.Button(fenetre, text="infos", command=afficher_tout)
