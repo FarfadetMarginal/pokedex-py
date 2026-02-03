@@ -77,14 +77,14 @@ def ajout():
     newspeed = champ_saisie10.get()
     imagezzz = newname.capitalize()
     
-    # bon la j'ai essayé de gérer les erreurs, ça bug avec try except et la c pas fou non plus
+    # bon la j'ai essayé de gérer les erreurs, ça bug avec try except et la c pas fou non plus nvm ça marche avec None!
 
     file_path = f"img/{imagezzz}.png"
     if os.path.exists(file_path):
         imagey= tk.PhotoImage(file=f"img/{imagezzz}.png")
         imagex = imagey.subsample(4, 4)
     else:
-            imagex = " "
+            imagex = None
 
 
     newname = Pokemon(newname, newnb, newtype, newh, neww, newhp, newatt, newdef, newspeatt, newspedef, newspeed, imagex)
@@ -108,7 +108,7 @@ def ajout():
 listbox = tk.Listbox(fenetre, width=40)
 for pok in pokemonlist:
     listbox.insert(tk.END,pok.name)
-listbox.place(x=20, y=0)
+listbox.place(x=20, y=10)
 
 label1 = tk.Label(fenetre)
 label1.place(x=20, y=500)
