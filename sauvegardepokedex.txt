@@ -1,0 +1,6 @@
+zarbi, 88, psy, 4, 4, 4, 4, 4, 4, 4, 4, pyimage22
+shaymin, 487, plante, 5, 5, 5, 5, 5, 555, 5, 5, pyimage22
+machoc, 58, fcdc, 7, 7, 7, 7, 7, 7, 7, 7, pyimage22
+spectrum, 25, spectre, 6, 6, 6, 66, 66, 6, 6, 6, pyimage22
+eoko, 154, psy, 8, 8, 8, 8, 8, 8, 8, 8, None
+métalosse, 555, metal, 44, 4, 4, 4, 4, 4, 4, 4, pyimage22

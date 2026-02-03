@@ -3,6 +3,8 @@ from tkinter import messagebox
 import os
 fenetre = tk.Tk()
 
+fichier = open("sauvegardepokedex.txt", "a")
+
 imagebulbizarre = tk.PhotoImage(file="img/Bulbizarre.png")
 image1 = imagebulbizarre.subsample(3, 3)
 imageherbizarre = tk.PhotoImage(file="img/Herbizarre.png")
@@ -91,7 +93,32 @@ def addnew():
     newname = Pokemon(newname, newnb, newtype, newh, neww, newhp, newatt, newdef, newspeatt, newspedef, newspeed, imagex)
     pokemonlist.append(newname)
     listbox.insert(tk.END,newname.name)
+
+    #essai de sauvegarde dans 1 fichier texte : 
+    with open("sauvegardepokedex.txt", "r", encoding="utf-8") as f:
+        fichier = open("sauvegardepokedex.txt", "a") 
+        fichier.write(f"{newname.name}, {newname.number}, {newname.type}, {newname.height}, {newname.weight}, {newname.hp}, {newname.attack}, {newname.defense}, {newname.spatt}, {newname.spdef}, {newname.speed}, {newname.img}\n")
+        
+        lines = f.readlines()
     
+        for line in lines:
+
+            liste = line.split(", ")
+            newname = liste[0]
+            newnb = liste[1]
+            newtype = liste[2]
+            newh = liste[3]
+            neww = liste[4]
+            newhp = liste[5]
+            newatt = liste[6]
+            newdef = liste[7]
+            newspeatt = liste[8]
+            newspedef = liste[9]
+            newspeed = liste[10]
+
+            newname = Pokemon(newname, newnb, newtype, newh, neww, newhp, newatt, newdef, newspeatt, newspedef, newspeed, imagex)
+            pokemonlist.append(newname)
+            listbox.insert(tk.END,newname.name)
 
     champ_saisie.delete(0, tk.END)
     champ_saisie1.delete(0, tk.END)
@@ -108,9 +135,9 @@ def addnew():
 def delete():
     selection = listbox.curselection()
     index = selection
-    name = listbox.get(index)
+    namedel = listbox.get(index)
     for pok in pokemonlist:
-        if pok.name == name:
+        if pok.name == namedel:
             pokemonlist.remove(pok)
             break
     listbox.delete(index)
