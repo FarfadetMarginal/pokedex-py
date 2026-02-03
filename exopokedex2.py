@@ -55,7 +55,7 @@ tortank = Pokemon("tortank", 9, ["eau"], 1.6, 85.5, 79, 83, 100, 85, 105, 78, im
 pokemonlist = [bulbizarre, herbizarre, florizarre, salameche, reptincel, dracaufeu, carapuce, carabaffe, tortank]
 
 
-def afficher_tout():
+def add_all():
     index = listbox.curselection()
     selection = listbox.get(index)
     for pok in pokemonlist:
@@ -64,7 +64,7 @@ def afficher_tout():
             label2.config(image = pok.img)
 
 
-def ajout():
+def addnew():
     newname = champ_saisie.get()
     newnb = champ_saisie1.get()
     newtype = champ_saisie2.get()
@@ -105,6 +105,15 @@ def ajout():
     champ_saisie9.delete(0, tk.END)
     champ_saisie10.delete(0, tk.END)
 
+def delete():
+    selection = listbox.curselection()
+    index = selection
+    name = listbox.get(index)
+    for pok in pokemonlist:
+        if pok.name == name:
+            pokemonlist.remove(pok)
+            break
+    listbox.delete(index)
 
 listbox = tk.Listbox(fenetre, width=40)
 for pok in pokemonlist:
@@ -117,7 +126,7 @@ label2 = tk.Label(fenetre)
 label2.place(x=20, y=180)
 
 
-bouton = tk.Button(fenetre, text="infos", command=afficher_tout)
+bouton = tk.Button(fenetre, text="Afficher infos", command=add_all)
 bouton.place(x=70, y=700)
 
 labelname = tk.Label(fenetre, text="nom")
@@ -175,11 +184,18 @@ labelspeed.place(x=500, y=300)
 champ_saisie10 = tk.Entry(fenetre)
 champ_saisie10.place(x=600, y=300)
 
-bouton2 = tk.Button(fenetre, text="ajouter un nouveau pokemon", command = ajout)
+bouton2 = tk.Button(fenetre, text="ajouter un nouveau pokemon", command = addnew)
 bouton2.place(x=550, y=330)
 
 labellogo = tk.Label(fenetre, image = logo1)
 labellogo.place(x=450, y=430)
+
+labeltrait = tk.Label(fenetre, text = "|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n")
+labeltrait.place(x=402, y=0)
+
+boutondel = tk.Button(fenetre, text="Supprimer pokemon", command=delete)
+boutondel.place(x=570, y=360)
+
 
 fenetre.geometry("804x768")
 fenetre.mainloop()
