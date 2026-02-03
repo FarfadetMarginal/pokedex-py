@@ -54,6 +54,7 @@ tortank = Pokemon("tortank", 9, ["eau"], 1.6, 85.5, 79, 83, 100, 85, 105, 78, im
         
 pokemonlist = [bulbizarre, herbizarre, florizarre, salameche, reptincel, dracaufeu, carapuce, carabaffe, tortank]
 
+
 def afficher_tout():
     index = listbox.curselection()
     selection = listbox.get(index)
