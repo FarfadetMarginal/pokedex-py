@@ -87,18 +87,17 @@ def addnew():
         imagey= tk.PhotoImage(file=f"img/{imagezzz}.png")
         imagex = imagey.subsample(4, 4)
     else:
-            imagex = None
-
+        imagex = None
 
     newname = Pokemon(newname, newnb, newtype, newh, neww, newhp, newatt, newdef, newspeatt, newspedef, newspeed, imagex)
     pokemonlist.append(newname)
     listbox.insert(tk.END,newname.name)
 
-    #essai de sauvegarde dans 1 fichier texte : 
+    #essai de sauvegarde dans 1 fichier texte (zone de code en travaux): 
     with open("sauvegardepokedex.txt", "r", encoding="utf-8") as f:
         fichier = open("sauvegardepokedex.txt", "a") 
-        fichier.write(f"{newname.name}, {newname.number}, {newname.type}, {newname.height}, {newname.weight}, {newname.hp}, {newname.attack}, {newname.defense}, {newname.spatt}, {newname.spdef}, {newname.speed}, {newname.img}\n")
-        
+        fichier.write(f"{newname.name}, {newname.number}, {newname.type}, {newname.height}, {newname.weight}, {newname.hp}, {newname.attack}, {newname.defense}, {newname.spatt}, {newname.spdef}, {newname.speed}, {newname.name}\n")
+
         lines = f.readlines()
     
         for line in lines:
@@ -115,11 +114,17 @@ def addnew():
             newspeatt = liste[8]
             newspedef = liste[9]
             newspeed = liste[10]
-
-            newname = Pokemon(newname, newnb, newtype, newh, neww, newhp, newatt, newdef, newspeatt, newspedef, newspeed, imagex)
+            newnewname = liste[0].capitalize()
+            file_path = f"img/{newnewname}.png"
+            if os.path.exists(file_path):
+                imageyy= tk.PhotoImage(file=f"img/{newnewname}.png")
+                imagexx = imageyy.subsample(4, 4)
+            else:
+                imagex = None
+            newname = Pokemon(newname, newnb, newtype, newh, neww, newhp, newatt, newdef, newspeatt, newspedef, newspeed, imagexx)
             pokemonlist.append(newname)
             listbox.insert(tk.END,newname.name)
-
+#fin de zone en travaux
     champ_saisie.delete(0, tk.END)
     champ_saisie1.delete(0, tk.END)
     champ_saisie2.delete(0, tk.END)
