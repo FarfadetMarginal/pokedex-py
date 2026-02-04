@@ -15,7 +15,7 @@ Vous devez versionner régulièrement votre code sur Github
 
 ## Authors
 
-  - **Baptiste COUTAS** - 
+ **Baptiste COUTAS**
 
 ## Ressources
 
